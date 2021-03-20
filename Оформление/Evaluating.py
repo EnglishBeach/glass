@@ -35,7 +35,7 @@ sh = wb.sheets.active()
 
 # values cells of Temp. rows. All, Fluid,Solid
 
-temp_rows = [34, 66]
+temp_row = [34, 66]
 frame = [[], []]
 
 # Creating temp. diapason
@@ -49,7 +49,7 @@ diap = [i for i in range(start_temp, end_temp, step)]
 
 # Finding of maximum of tables
 
-for temp_i in temp_rows:
+for temp_i in temp_row:
 
     max_row = temp_i + 1
     while sh.cells(max_row, 'A').value != 0.0:
