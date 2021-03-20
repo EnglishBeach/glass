@@ -32,23 +32,23 @@ def result(base, delta):
 # app = xw.App(visible=True)
 wb = xw.Book.caller()
 sh = wb.sheets.active()
-'''
-values cells of Temp. rows. All, Fluid,Solid
-'''
+
+# values cells of Temp. rows. All, Fluid,Solid
+
 temp_rows = [34, 66]
 frame = [[], []]
-'''
-Creating temp. diapason
-? n or n+1
-'''
+
+# Creating temp. diapason
+# ? n or n+1
+
 start_temp = int(sh.range('B1').value)
 end_temp = int(sh.range('C1').value)
 number_temp = sh.range('E1').value
 step = int((end_temp - start_temp) // number_temp)
 diap = [i for i in range(start_temp, end_temp, step)]
-'''
-Finding of maximum of tables
-'''
+
+# Finding of maximum of tables
+
 for temp_i in temp_rows:
 
     max_row = temp_i + 1
