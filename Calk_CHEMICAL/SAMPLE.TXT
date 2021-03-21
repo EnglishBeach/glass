@@ -1,0 +1,159 @@
+@x1       CHEMICAL THERMODYNAMICS CALCULATOR V1.10:
+            HOW TO ENTER SAMPLE PROBLEM
+
+This  file  contains  description how to create and solve simple
+sample problem. To show difference between explanative text  and
+strings that you type and keys you hit, both the last printed in
+G4bold faceH5. The special key names enclosed in angle brackets <>.
+
+The sample problem is formulated as follows:
+   to  find equilibrium state of a system, containing 3 moles of
+   diethylcadmium, 2 moles of  diethyltellurium,  0.4  moles  of
+   diethylselenium,  0.6  moles of diethylsulfur and 12 moles of
+   hydrogen. There  is  one  condensed  solution  consisting  of
+   cadmium-tellurium,  cadmium-selenium  and  sulfur-cadmium. To
+   ignore ability of formation of diamonic carbon. Do solve with
+   pressure 0.015 atm and temperature  from  300  to  700  in  6
+   points.
+
+First,  start Chemical by typing G4CHH5 at DOS prompt. Press any key
+twice, and you're pass into the Main menu. Highlight bar  is  on
+the  "Problem" selection. Choose it by pressing the G4EnterH5 key to
+go to the Problem window. Now, the cursor  is  in  the  "Problem
+description" field. Hit the G4EnterH5 key and type in description of
+your problem:
+
+  G4Thermodesctruction of EOC mix in hydrogen environment<Enter>H5
+
+Then,  press  G4<Down>H5  to  access the Temperature field and press
+G4<Enter>H5. Type in the box
+
+  G4300,6,700<Enter>H5
+
+Press  G4<Down>H5  once  more,  passing  to  the Pressure field, hit
+G4<Enter>H5 and type
+
+  G40.015<Enter>H5
+
+Now, you're to give out initial mix. Press G4<Down>H5 once more; the
+cursor  stands  on  the  Initial mix heading. Type the following
+keys:
+
+  G4<Ins>cdc2h6:3<Enter>
+  <Ins>tec2h6:2<Enter>
+  <Ins>sec2h6:0.4<Enter>
+  <Ins>s1c2h6:0.6<Enter>
+  <Ins>h2:12<Enter>H5
+
+Then,  you  must  exclude  the  diamond from the solving. Strike
+G4<Down>H5 twice to  locate  the  cursor  on  the  Excluded  species
+heading. Type:
+
+  G4<Ins>*c[Diamond]<Enter>H5
+
+Now you're to  enter  the  solid solution from your problem. Hit
+G4<down>H5 twice again to place cursor on the Solid solution heading. Type
+
+  G4<Ins>cdte<Enter>H5
+
+Hit G4<Down>H5 to locate cursor on the formula CdTe, then type
+
+  G4<Ins>cdse<Enter>
+  <Ins>s1cd<Enter>H5
+
+Now, entering your task is completed. You probably want to  save
+it on the disk. Press G4<F2>H5 and type
+
+  G4mysample<Enter>H5
+
+Task  is  saved, and name MYSAMPLE.CHM flashes at the upper left
+corner of the Problem  window.  Now,  you  can  load  your  task
+anytime you want it.
+
+Now,  it's time to solve this problem. For instance, you want to
+limit C-chain length to 3 atoms. Pass  into  the  Main  menu  by
+hitting  G4<F10>H5,  then  type  G4OSCH5  to access the "C-chain length"
+choice and type in
+
+  G43<Enter>
+  <Esc><Esc>H5
+
+to change the default value to 3.
+
+Now,  you're in the Main menu. Start solving by typing G4SH5. First,
+Chemical searches the database for species that may  be  created
+in  the  system, then the Solving window appears, where it shows
+how it  solves  your  problem.  After  all,  you  will  see  the
+Refinement  points  menu. Remember this point since we will have
+to return to it. Now, you need no refinement since you're  going
+to   print  results  of  solution.  Refinement  will  incredibly
+increase number of points and, respectively, amount of printing.
+So, type G4<Esc>DH5 to refuse  refining,  then  hit  G4<F9>H5.  Chemical
+passes into the Result menu without doing any refinement.
+
+Load  printer with paper, and choose the "Print" option from the
+menu. Else one menu appears. We will not work  with  the  second
+choice,  "Print options". We just simply start typing by hitting
+the G4EnterH5 key. Printer brings out short one-page report. At this
+point, you want to print graphics as well. To print high-quality
+graphics, you must refine your solution in  several  points  per
+each  interval.  To  do  it,  we  repeat  solving  from the very
+beginning.
+
+Choose  the "Abandon" option by hitting G4AH5 and confirm abandoning
+by hitting G4YH5. Touch G4SH5 while in the Main menu, and Chemical again
+brings you up again into the Refinement points menu. Now,  since
+you're  making presentation quality graphics, you want to refine
+all points. Post it by hitting G4<Esc>RH5, then hit  G4<F9>H5.  Chemical
+allows  you  to  change the default number of refinement points.
+Since you're agree with it, you simply press  G4<Enter>H5.  Chemical
+does  refinement  (it  is  severally  longer  than  the  primary
+solving) and shows the Result menu again.
+
+Here, change significance level to 1E-11. To do it, type G4SH5, then
+
+   G41E-11<Enter>H5
+
+Then,  look  graphics by pressing G4GH5. You now see the Solid page,
+where separate solid phases and condensed  solution  are  drawn,
+the first by white lines and the second by yellow ones. To print
+this  graphic,  hit  G4<F9>H5.  After  printing  is  finished, touch
+G4<Space>H5 to change page to Vapor one, where you see Vapor  phase.
+Print  it  also by pressing G4<F9>H5. To leave the Graphics service,
+press G4<Esc>H5. Touch G4AYH5, and you're back in the Main menu.
+
+Now,  let's  change  our  problem. What will change if we fix up
+concentration  of  diethylsulfur  at  50%  level  from   initial
+concentration  and  announce that the concentration of ethane is
+two times high than the concentration of methane? (Usually, such
+information comes from real experiment). Surely,  we  must  edit
+the problem that is already in the Problem window.
+
+Go  into  the Problem window again by typing G4SH5. Place the cursor
+on the Fixed species heading ant type
+
+   G4<Ins>s1c2h6<Enter>H5
+
+The  second  condition  from  the  problem must be considered as
+follows: the  concentration  of  methane  times  two  minus  the
+concentation of ethane equal to zero. So, enter this constraint.
+Place  the  cursor  on  the Linear constraints heading and press
+G4<Ins>H5. You're to enter right hand of constraint. Type in
+
+  G40<Enter>H5
+
+Now,  Chemical  asks  you to enter first specie from constraint.
+Type
+
+  G4c2h6:-1<Enter>
+  <Down><Ins>
+  ch4:2<Enter>H5
+
+Now,  the  problem  is changed in the way we wanted. You want to
+save this corrected variant to the disk. Press G4<F2>H5, and task is
+saved. Note that you're not asked for name of file; since you've
+once provided name for the file, it is not asked for again.
+
+The  only  thing  that  is  remaining to do is to repeat all the
+steps of solving, as in the above example. 
+

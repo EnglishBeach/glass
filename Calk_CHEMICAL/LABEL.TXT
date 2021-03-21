@@ -1,0 +1,7 @@
+@x1CHEMICAL THERMODYNAMICS
+      CALCULATOR
+     Version 1.10
+     Copyright(c)
+  Green Arrow, 1990
+Supplyee: OMC Tech Labs
+

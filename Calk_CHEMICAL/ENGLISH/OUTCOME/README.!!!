@@ -1,0 +1,29 @@
+This package of Demo CHEMICAL V1.10 contains the following files:
+
+ CH.EXE       -- Executable Chemical environment
+ CHEMICAL.DBS -- Chemical's database
+ CHEMICAL.HLP -- File containing all the Help texts
+
+ *.CHM        -- Several examples; these are readable by Chemical
+ MATHBASC.TXT -- Mathematical basics of Chemical
+ HELPME!.TXT  -- Common questions and answers
+ SCHEME.TXT   -- Control flow diagram
+ SAMPLE.TXT   -- Description how to create simple Chemical problem
+ PRTDOCO.BAT  -- Batch file that sends the four above files to printer
+ README.!!!   -- This file
+
+First, type
+
+   PRTDOCO
+
+at the DOS prompt to produce the hardcopy of your doco files; note that
+only the HELPME!.TXT file is human-readable, while others are formatted
+for printing only. Then, you can start Chemical by typing
+
+   CH
+
+at the system prompt.
+
+Chemical is tested under MS-DOS 3.30 and PC-MOS/386 2.15 and must work
+as well in higher versions of these systems.
+

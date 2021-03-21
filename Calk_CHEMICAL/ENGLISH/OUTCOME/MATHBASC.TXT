@@ -1,0 +1,267 @@
+@x1  CHEMICAL THERMODYNAMICS CALCULATOR V1.10: THE MATH BACKBONE
+
+G4-1i. IntroductionH5-0
+
+Chemical  Thermodynamics Calculator is the system for simulation
+of the  chemical  engineering  processes.  It  is  the  computer
+realization  of  the  most  common  method  of  solving chemical
+thermodynamics problems - Gibbs method supplementing possibility
+of describing both equilibrium and  non-equilibrium  states  for
+multispecies heterogeneous chemically reactive systems.
+
+Chemical is an integrated environment and provides the following
+possibilities:
+   þ unique,    rapid,    reliable    algorithm    for   solving
+     thermodynamics problems  based  on  minimization  of  Gibbs
+     energy using Lagrange method;
+   þ automatic  interaction  with  the database of thermodynamic
+     functions  of   individual   species   (Gibbs   energy   vs
+     temperature);
+   þ multiwindow  user-friendly  interface and over 150 pages of
+     help;
+   þ facilities  for tabulated and graphic representation of the
+     solution results.
+
+The   version  that  we  present  here  is  capable  of  solving
+sufficiently common class of the problems  and  allows  to  make
+calculation  of  the system actually consisting of the unlimited
+number of vapor and condensed  species  considering  their  both
+electroneutral  and ionized forms, separate condensed phases and
+ideal mixtures. The assignment for calculation is defined by the
+relative content of initial substances or by element composition
+and also by temperature and pressure at one or several points.
+
+Chemical  has  rather  effective  possibility  of simulating the
+non-equilibrium  states  occurring  in  experience,   based   on
+Leontovich idea about increasing the number of outer parameters.
+In  this version of Chemical non-equilibrity can be described in
+terms of giving out the linear constraints to the concentrations
+of the selected species according to the additional experimental
+information.
+
+The  universal  algorithms  and designing principles of Chemical
+suggest further development in the following ways:
+   þ implementation of non-ideal solution models;
+   þ describing   the  arbitrary  thermodynamic  processes  when
+     assigning any permissible pair of values  from  P,V,T,U,H,S
+     set;
+   þ extension    of    possibilities    for    description   of
+     non-equilibrium states;
+
+G4-1ii. Mathematical basics of ChemicalH5-0
+
+The general criterion for the determination of the thermodynamic
+state  of  multispecies  heterogeneous  system  is  its  entropy
+maximum 4[1]5. The formulation of the problem  for  a  widely-used
+practical case of the fixed temperature T and pressure P 4([2,3])5
+resulting  from this criterion is reduced to the minimization of
+Gibbs energy in the following equation
+
+            G(T,P,{nS1iT})/RT=G4äH5nS1iT(æ~S1iT+G4lnH5nS1iT)-G4äH5n~S1fTG4lnH5n~S1fT             4(1)5
+
+where  nS1iT  is the desired numbers of moles of the specie i, n~S1fT -
+numbers to be determined by solving the problem as mole  numbers
+in the phase f.
+
+The equation 4(1)5 is written for a multiphase system, consisting,
+for  instance,  of  the  ideal  vapor phase, arbitrary number of
+separate (single specie) condensed phases and  predefined  ideal
+condensed  solution  (mixtures).  Value  n~S1fT  for each of fS10T such
+phases is defined by the equation
+
+                  G4äH5nS1iTaS1ifT-n~S1fT=0,  f=1...fS10T                    4(2)5
+
+where  the  belonging  coefficients  of specie i in phase f have
+been introduced,  aS1ifT={0,1}.  Reduced  chemical  potentials  (ie
+divided  by  RT) for each pure (individual) specie in the system
+are defined by the tabulated values of  standard  Plank function
+èS00T(T)=-(GS00T(T)-HS00T(0))/T and by the standard entalphy of formation
+
+0                      ëHS00TS1fi,0T   èS00T(T)   Ú G4lnH5p~, vapor
+                æ~S1iT =  ÄÄÄÄÄÄ - ÄÄÄÄÄ + ´                    4(3)5
+                        RT       R     À 0, condensate2
+
+where ëHS00TS1fi,0T=ëHS00TS1fi,298T-(HS00T(298)-HS00T(0))S1iT,
+      p~ - dimensionless overall pressure in units of atm.
+
+For  closed systems without any matter exchange with environment
+while going from the initial to the final  thermodynamic  state,
+the  most  common and useful form of law of conservation of mass
+is given by expression 4[2,3]5
+
+                  G4äH5nS1iTaS1ijT-bS1jT=0,  j=1...jS10T                    4(4)5
+
+where bS1jT  - mole number of element j,
+      jS10T  - number of different elements,
+      aS1ijT - stoichiometric  matrix  coefficients, defining the
+            quantity of atoms j in all forms of specie i.
+
+In such a balance by element the latter are independent species.
+
+Thus,  in  the Chemical's initial assignment, excepting values T
+and P, one can either directly  specify  the  mole  numbers  for
+element  j or Chemical itself easily calculates them from number
+of moles of  initial  species  nS1iTS00T:  b'S1jT=G4äH5nS1iTS00TaS1ijT.  Unnecessary  but
+convenient  normalization  of  the  initial  composition  allows
+to assign the relative values while specifying the latter and to
+unify the inner variables in 4(4)5 by  designating  bS1jT=b'S1jT/G4äH5b'S1kT .  It
+should be noted that the overall abundance of atoms in system is
+always  exactly 1 mole; since values 0ónS1iTó1 as a solution result
+define the number of moles for specie i per mole-atom.
+
+This stage terminates the traditional formulation of the problem
+4[2,3]5, and equations  4(1)5-4(4)5  define completely the equilibrium
+of the  system,  which  is  achieved  due  to  the  inner  phase
+and chemical conversion.
+
+However,  in  the  real  various reactions indicated conversions
+don't proceed to  the  end.  As  a  consequence  system  reaches
+so-called incomplete equilibrium. In particular, if one or a few
+species under given  conditions  are  kinetically  stable,  then
+while  calculating  such  a  state  it  is possible to fix their
+concentrations at the level defined by  additional  experimental
+information.
+
+In  a  more general case the kinetic constraints both for phases
+and for chemical conversions are formulated in the thermodynamic
+terms as qualitative features of the system  to  be  considered.
+It's practically effected by:
+   1) dividing   the    system    into   subsistems  with  their
+      own relaxation times;
+   2) prohibition  the  chemical conversion for substances which
+      are in fact inert under given conditions;
+   3) assumption  of  immobility  of  species  in certain parts,
+      phases etc.
+
+Similar  constraints, on the basis of which some of the possible
+processes are either excluded or  certain  outer  effects  being
+included,  can  be  expressed as additional equations similar to
+4(4)5 in particular:
+
+                  G4äH5nS1iTaS1ilT-bS1lT=0,  l=1...lS10T                    4(5)5
+
+Equations  4(5)5  may  reflect  additional  energy  balance to the
+isolated species in the presence of selective effects.  In  this
+case  the  aS1ilT  coefficient  play the role in balance of partial
+energies. For ionic systems, the aS1ilT coefficients are charges of
+species, bS1lT is the overall charge of the system. For  chemically
+non-equilibrium   systems   aS1ilT  are  the  coefficients  of  the
+incorporation the specie i into the linear constraint l.
+
+Such  an  approach  allows  various non-equilibrium states to be
+treated as conditionally-equilibrium ones 4[5]5. In this case, the
+thermodynamic functions of the system, if they  exist,   ie  are
+measurable,  depend  on the larger number of arguments and outer
+parameters than in equilibrium in the  same  system  4[4]5.  As  a
+matter of fact, the part of the inner variables, for instance by
+composition,  which are defined for solving suitable equilibrium
+problem, goes over into the category of the outer ones  together
+with specified T and P.
+
+There's   a   position   4[6]5   according   to  which  stationary
+non-equilibrium processes can be attributed, in number of cases,
+to the category of conditionally-equilibrium ones.
+
+The  minimization  of Gibbs energy 4(1)5 with n~S1fT values 4(2)5 in the
+presence of the balance equations 4(4)5 and linear constraints 4(5)5
+by using Lagrange method of indefinite multipliers results  into
+equation  system 4(6)5,  where  nS1iT is determined  by the following
+
+expressions 4(7)5:
+
+                  G4äH5nS1iTAS1iJT-BS1JT=0,  J=1...JS10T                    4(6)5
+
+                  nS1iT=exp(G4äH5TAS1iJTæS1JT-æ~S1iT)                         4(7)5
+
+In  deriving 4(6)5 and 4(7)5, the formal substitution n~S1fT=exp(æS1fT) has
+been    made.    The    extended     stoichiometric       matrix
+AS1iJT={aS1ijT,aS1ilT,aS1ifT} and vector BS1JT={bS1jT,bS1lT,n~S1fT} have been introduced;
+they allowed to unite 4(2)5, 4(4)5 and 4(5)5 into one equation 4(6)5. In
+the  vector  of  unknowns  æS1JT={æS1jT,æS1lT,æS1fT} the Lagrange indefinite
+multipliers æS1jT and æS1lT have a  sense  with  respectively  reduced
+chemical potentials for atoms and linear constraints.
+
+To  solve JS10T=jS10T+lS10T+fS10T nonlinear equation with the same number of
+unknowns  æS1JT  Chemical  uses  unique  quasi-Newtonian  iterative
+procedure  which  is  practically  insensitive  to  the  initial
+estimate.
+
+This    version   provides   ability   of   calculation   wholly
+electroneutral ionic systems, as well as all possible  cases  of
+linear  constraints to concentrations of any species to describe
+chemically non-equilibrium states. Although fixation  of  specie
+is  a  particular  case of linear constraint, it's provided with
+separate procedure, which requires no knowledge of thermodynamic
+functions. Note that fixation level for specie is  specified  in
+percents  from  its maximal abundance. The exclusion of a specie
+may be considered as fixation at the zero  level.  At  the  same
+time,  always  be  sure  to  fix  electron gas only by using the
+linear constraint, never direct fixing. While dealing  with  the
+linear  constraints,  especially  when their right hand is other
+than zero, you should be careful, since Chemical  is  unable  to
+recognize   the   situation   when  linear  constraints  are  in
+refutation with matter balance equations  4(6)5.  If  it  happens,
+Chemical will be unable to reach the convergency you wanted.
+
+The main steps while solving the problem in Chemical:
+   þ Creating the problem in interactive mode;
+   þ Automatic   retrieving   all  containing  in  the  database
+     species, that can  be  formed  from  the  elements  in  the
+     problem;
+   þ Solving  the  4(6)5-4(7)5  system and output the results onto a
+     terminal or a printer.
+
+And,   finally,   a   few  words  about  representation  of  the
+thermodynamic  functions  of  species  in  the   database.   For
+dimensionless    standard    Plank    function   the   following
+approximation formula is adopted:
+
+        èS00T(T)/R = èS11T+èS12TG4lnH5x+èS13TxS0-2T+èS14TxS0-1T+èS15Tx+èS16TxS02T+èS17TxS03T        4(8)5
+
+where  x=Tù10S0-4T,  T in K. Depending on units of measurement used
+for function èS00T, gas constant  R=8.3144 J/molúK=1.9871 cal/molúK
+(cal  assumed  to  be thermochemical calorie). The dimensionless
+
+enthalpy of formation in zero K
+
+0                  ëHS00TS1f,0T   ëHS00TS1f,298T-(HS00T(298)-HS00T(0))
+            ëhS00T = ÄÄÄÄÄ = ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ            4(9)5
+                  10S04TùR         10S04TùR2
+
+According  to  this, the reduced chemical potentials for solving
+are calculated as follows:
+
+0                                Ú G4lnH5p~, vapor
+              æ~S1iT = ëhS00T/x-èS00T/R + ´                          4(10)5
+                                À 0, condensate2
+
+Every  specie  that stored in the database, is determined by the
+quantity  ëhS00T  and  seven  coefficients èS11T-èS17T  in  corresponding
+temperature  ranges.  Such  a data can be found in the reference
+books 4[7,8]5 or similar ones.
+
+G4-1iii. ReferencesH5-0
+
+1. Gibbs  J.W.  (1876)  in  The  Scientific Papers of J.W.Gibbs,
+   Vol.1, Thermodynamics, Dover, New York, 1961
+2. Smith   W.R.,Missen   R.W.   Chemical   Reaction  Equilibrium
+   Analysis: Theory And Algorithms,John Wiley&Sons,New York,1982
+3. Walas   S.M.   Phase   Equilibria  in  Chemical  Engineering.
+   BuHerworth Publishers, Boston, 1985
+4. Leontovich  M.A.  Introduction In Thermodynamics. Statistical
+   Physics. Nauka Press, Moscow, 1983 (in Russian)
+5. Woronin  G.F.  Basics  Of  Thermodynamics.  Moscow University
+   Press, Moscow, 1987 (in Russian)
+6. Denbigh  K.G. The Principles of Chemical Equilibrium. 4th ed.
+   Cambridge University Press, 1981
+7. JANAF  Thermochemical Tables, 2nd ed. D.R.Stull and H.Prophet
+   (project   directors),   National   bureau   of    Standards,
+   NSRDS-NBS37,  Washington  DC, June, Supplements by M.W.Chase,
+   J.L.Curnutt,  A.T.Hu,  H.Prophet,  A.N.Syverud,   L.G.Walker,
+   R.A.McDonald.  J.Phys.Chem.Ref.Data  3,311(1974);  4,1(1975);
+   7,793(1978).
+8. Thermodynamical  Props  of  Individual  Substances. Reference
+   Book. in 4 vols. Gurvich A.W.,Wejtz  I.W.,Medwedew  W.A.  and
+   others. Nauka Press, Moskow, 1978-1982 (in Russian)
+
+

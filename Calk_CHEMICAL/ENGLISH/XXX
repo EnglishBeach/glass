@@ -1,0 +1,27 @@
+
+            G(T,P,{nS1iT})/RT=G4äH5nS1iT(æ~S1iT+G4lnH5nS1iT)-G4äH5n~S1fTG4lnH5n~S1fT                  (1)
+
+                  G4äH5nS1iTaS1ifT-n~S1fT=0,  f=1...fS10T                         (2)
+
+                      ëHS00TS1fi,0T   èS00T(T)   Ú G4lnH5p~, vapor
+                æ~S1iT =  ÄÄÄÄÄÄ - ÄÄÄÄÄ + ´                         (3)
+                        RT       R     À 0, condensate
+
+                  G4äH5nS1iTaS1ijT-bS1jT=0,  j=1...jS10T                         (4)
+
+                  G4äH5nS1iTaS1ilT-bS1lT=0,  l=1...lS10T                         (5)
+
+                  G4äH5nS1iTAS1iJT-BS1JT=0,  J=1...JS10T                         (6)
+
+                  nS1iT=exp(G4äH5TAS1iJTæS1JT-æ~S1iT)                              (7)    
+
+        èS00T(T)/R = èS11T+èS12TG4lnH5x+èS13TxS0-2T+èS14TxS0-1T+èS15Tx+èS16TxS02T+èS17TxS03T             (8)
+
+                  ëHS00TS1f,0T   ëHS00TS1fi,298T-(HS00T(298)-HS00T(0))
+            ëhS00T = ÄÄÄÄÄ = ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ                (9)
+                  10S04TùR         10S04TùR
+
+                                Ú G4lnH5p~, vapor 
+              æ~S1iT = ëhS00T/x-èS00T/R + ´                               (10)
+                                À 0, condensate 
+
