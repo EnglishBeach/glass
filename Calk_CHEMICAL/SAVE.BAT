@@ -1,6 +1,0 @@
-pkzip chem *.c *.h *.asm *.htx *.prj *.tcp *.tc *.cfg *.box *.chm *.fnt *.inc *.lnk *.mak *.com
-pause Insert Archive Disk in drive A: ...
-copy chem.zip a:\
-pkunzip -t a:\chem
-del chem.zip
-pause Remove Archive Disk ASAP ...
