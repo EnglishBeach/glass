@@ -39,10 +39,8 @@ def result(base, delta):
     return out
 
 
-# app = xw.App(visible=True)
 wb = xw.Book
 sh = xw.sheets.active
-# sh_answer = xw.sheets('Answ')
 
 # Значения номеров строк температурных интервалов, задающих матрицу значений
 
