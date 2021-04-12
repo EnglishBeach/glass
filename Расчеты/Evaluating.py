@@ -44,7 +44,7 @@ sh = xw.sheets.active
 
 # Значения номеров строк температурных интервалов, задающих матрицу значений
 
-temp_rows = [34, 66]
+temp_rows = [2,34,66]
 frame = [[], []]
 
 # Создание диапазона
@@ -55,9 +55,10 @@ number_temp = sh.range('E1').value
 step = int((end_temp - start_temp) // number_temp)
 diap = [i for i in range(start_temp, end_temp+1, step)]
 
-# Нахождение длины
-for temp_i in temp_rows:
 
+i = 0
+for temp_i in temp_rows:
+    # Нахождение длины
     max_row = temp_i + 1
     while sh.cells(max_row, 'A').value != 0.0:
         max_row += 1
@@ -70,5 +71,6 @@ for temp_i in temp_rows:
 
     frame = sh.range((temp_i, 1), (max_row - 1, max_column - 1)).value
     res = result(frame, diap)
-    sh.range(66 + temp_i, 1).value = res
+    sh.range(100+i*32, 1).value = res
+    i +=1
 wb.save
