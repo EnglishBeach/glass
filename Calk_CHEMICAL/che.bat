@@ -1,2 +1,0 @@
-cd CHEMWORK
-..\che.exe
